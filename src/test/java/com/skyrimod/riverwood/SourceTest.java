@@ -50,4 +50,14 @@ public class SourceTest {
 
        // System.out.println(file.getParentFile().getAbsolutePath());
     }
+    @Test
+    public void uuidTest(){
+        System.out.println(UUID.randomUUID().toString());
+        Date date = new Date();
+        System.out.println(date.toString());
+        System.out.println(date.getTime());
+        System.out.println(System.currentTimeMillis()/1000);
+        System.out.println(new Long(System.currentTimeMillis()/1000).intValue());
+        //System.out.println(Integer.parseInt(String.valueOf(date.getTime())));
+    }
 }

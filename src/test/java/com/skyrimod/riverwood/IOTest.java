@@ -2,10 +2,7 @@ package com.skyrimod.riverwood;
 
 import org.junit.Test;
 
-import java.io.FileOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -18,5 +15,8 @@ public class IOTest {
     @Test
     public void ioTest(){
         // PrintWriter printWriter = new PrintWriter("employee.txt", StandardCharsets.UTF_8);
+//        FilterInputStream fis = new FilterInputStream();
+//        BufferedInputStream bis = new BufferedInputStream(fis);
+//        InputStreamReader isr = new InputStreamReader(bis, "utf-8");
     }
 }
