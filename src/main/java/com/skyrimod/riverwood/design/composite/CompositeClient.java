@@ -6,7 +6,7 @@ package com.skyrimod.riverwood.design.composite;
  * @author: suixin
  * @date: 2021/5/24
  */
-public class Client {
+public class CompositeClient {
     public static void main(String[] args) {
         MyComponent one = new Composite();
         MyComponent two = new Composite();
