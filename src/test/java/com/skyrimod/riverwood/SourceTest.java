@@ -1,5 +1,8 @@
 package com.skyrimod.riverwood;
 
+import com.skyrimod.riverwood.design.composite.Composite;
+import com.skyrimod.riverwood.design.composite.Leaf;
+import com.skyrimod.riverwood.design.composite.MyComponent;
 import org.junit.Test;
 import sun.tools.java.Scanner;
 
