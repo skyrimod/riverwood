@@ -19,5 +19,15 @@ public class Client {
         two.operation();
         System.out.println("=== leaf ===");
         leaf.operation();
+
+        leaf.add(one);
+        two.remove(two);
+        leaf.remove(two);
+
+        System.out.println("=== one ===");
+        one.operation();
+        System.out.println("=== two ===");
+        two.operation();
+
     }
 }

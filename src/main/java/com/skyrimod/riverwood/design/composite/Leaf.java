@@ -13,12 +13,14 @@ import java.util.List;
 public class Leaf implements MyComponent {
     @Override
     public void add(MyComponent myComponent) {
-        return;
+        System.out.println("叶子节点，禁止add");
     }
 
     @Override
-    public MyComponent remove(MyComponent myComponent) {
-        return null;
+    public MyComponent remove(MyComponent parent) {
+        System.out.println("删除叶子节点leaf");
+        MyComponent remove = parent.remove(this);
+        return remove;
     }
 
     @Override
@@ -28,6 +30,6 @@ public class Leaf implements MyComponent {
 
     @Override
     public void operation() {
-        System.out.println("Leaf");
+        System.out.println("leaf");
     }
 }

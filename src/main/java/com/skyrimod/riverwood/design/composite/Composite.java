@@ -20,13 +20,19 @@ public class Composite implements MyComponent {
 
     @Override
     public MyComponent remove(MyComponent myComponent) {
-        int i = 0;
-        for (; i < myComponents.size(); i++) {
-            if (myComponents.get(i).equals(myComponent)){
-                break;
+        if (myComponent instanceof Leaf){
+            int i = 0;
+            for (; i < myComponents.size(); i++) {
+                if (myComponents.get(i).equals(myComponent)){
+                    break;
+                }
             }
+            return myComponents.remove(i);
         }
-        return myComponents.remove(i);
+        if (myComponent instanceof Composite){
+            System.out.println("不是叶子节点，禁止删除");
+        }
+        return null;
     }
 
     @Override
