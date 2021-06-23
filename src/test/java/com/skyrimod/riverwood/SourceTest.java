@@ -3,6 +3,7 @@ package com.skyrimod.riverwood;
 import com.skyrimod.riverwood.design.composite.Composite;
 import com.skyrimod.riverwood.design.composite.Leaf;
 import com.skyrimod.riverwood.design.composite.MyComponent;
+import lombok.Data;
 import org.junit.Test;
 import sun.tools.java.Scanner;
 
@@ -223,6 +224,44 @@ public class SourceTest {
     @Test
     public void strnullTest(){
         String str = null;
-        System.out.println(str.equals("666"));
+        System.out.println(str.equals("666"));// 空指针
+
+        int i = 8;
+        Integer integer = new Integer(i);
+    }
+
+    @Data
+    class IntChar{
+        private int i;
+        private char c;
+    }
+    @Test
+    public void intCharTest(){
+        IntChar intChar = new IntChar();
+        System.out.println(intChar);
+
+        System.out.println(this.storage("Hello"));
+    }
+
+    public int storage(String str){
+        return str.length()*2;
+    }
+
+    class Base{
+        private void test(){
+            System.out.println("base");
+        }
+    }
+
+    class Son extends Base{
+        public void test(){
+            System.out.println("son");
+        }
+    }
+    @Test
+    public void priTest(){
+        Son son = new Son();
+        Base base = son;
+        base.test();
     }
 }

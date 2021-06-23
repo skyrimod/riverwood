@@ -10,15 +10,13 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = RiverwoodApplication.class)
 class RiverwoodApplicationTests {
-    @Resource
-    RestTemplate restTemplate;
 
     @Test
     void contextLoads() {
         System.out.println("riverwood");
-        String url = "";
+
     }
 
 }

@@ -1,5 +1,7 @@
 package com.skyrimod.riverwood.thread;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * Runnable工厂类
  *
@@ -26,6 +28,23 @@ public class RunnableFactory {
             } catch (InterruptedException e) {
                 System.out.println(Thread.currentThread()+"中断");
                 e.printStackTrace();
+            }
+        };
+    }
+
+    public static Runnable reentrantLockTest(){
+        return ()->{
+            ReentrantLock lock = new ReentrantLock();
+
+            if (lock.tryLock()) {
+                lock.lock();
+                try{
+                    for (int i = 0; i < 10; i++) {
+                        System.out.println(Thread.currentThread().getName()+"==="+i);
+                    }
+                }finally {
+                    lock.unlock();
+                }
             }
         };
     }
