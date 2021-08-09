@@ -18,6 +18,8 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import static java.util.stream.Collectors.*;
 
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -30,6 +32,29 @@ import java.util.stream.Stream;
  * @date: 2021/5/11
  */
 public class SourceTest {
+
+    @SneakyThrows
+    @Test
+    public void CompletableFutureTest(){
+        CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
+            for (int i = 0; i < 10; i++) {
+                System.out.println(i);
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("end");
+            return 1;
+        }).whenComplete((r, e) -> {
+            System.out.println("when end " + r);
+        }).exceptionally(e->{
+            return 2;
+        });
+
+        System.out.println("main end "+future.get());
+    }
 
     @SneakyThrows
     @Test
