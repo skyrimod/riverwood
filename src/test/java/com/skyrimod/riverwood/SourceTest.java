@@ -4,14 +4,22 @@ import com.skyrimod.riverwood.design.composite.Composite;
 import com.skyrimod.riverwood.design.composite.Leaf;
 import com.skyrimod.riverwood.design.composite.MyComponent;
 import lombok.Data;
+import lombok.SneakyThrows;
 import org.junit.Test;
+import org.junit.platform.commons.util.StringUtils;
 import sun.tools.java.Scanner;
 
 import java.io.File;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import static java.util.stream.Collectors.*;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -22,6 +30,60 @@ import java.util.stream.Stream;
  * @date: 2021/5/11
  */
 public class SourceTest {
+
+    @SneakyThrows
+    @Test
+    public void MessageDigestTest(){
+        // 用于生成散列码
+        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        String str = "MessageDigestTest";
+        messageDigest.update(str.getBytes());
+
+        StringBuffer sb = new StringBuffer();
+        for (byte b : messageDigest.digest()) {
+            sb.append(String.format("%02X",b));
+        }
+
+        String s = sb.toString();
+        System.out.println(s);
+
+        // 02D4F58841CFAF11F25D3254E6B5622C
+        // 02D4F58841CFAF11F25D3254E6B5622C
+
+        String str2 = "MessageDigestTest";
+        messageDigest.update(str.getBytes());
+        System.out.println(new BigInteger(messageDigest.digest()).toString(16));
+    }
+
+    @Test
+    public void testStr(){
+        List<String> strings = new ArrayList<>();
+        strings.add("Hello ");
+        strings.add("World ");
+        strings.add("Java ");
+        strings.add("C++ ");
+
+        String[] strArray = new String[strings.size()];
+
+        strings.toArray(strArray);
+
+        for (String s : strArray) {
+            System.out.println(s);
+        }
+    }
+
+    @Test
+    public void testPattern(){
+//        Pattern pattern = Pattern.compile("路由器可以用来物理地将多个段合成一个逻辑段");
+//        Matcher matcher = pattern.matcher("多个");
+//        System.out.println(matcher.find());
+
+        String str = "路由器可以用来物理地将多个段合成一个逻辑段";
+
+        String[] str2 = str.split("物理");
+        System.out.println(str2[0]);
+        System.out.println(str2[1]);
+    }
     @Test
     public void test(){
         Stream<Locale> locales = Stream.of(Locale.getAvailableLocales());
