@@ -7,10 +7,7 @@ import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import static org.mockito.Mockito.*;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @ClassName MockTest
@@ -19,6 +16,28 @@ import java.util.Map;
  * @Date 2021/7/29 下午3:23
  **/
 public class MockTest{
+    @Test
+    public void test6(){
+        List mock = mock(List.class);
+
+        doAnswer(f -> {
+            return false;
+        }).when(mock).isEmpty();
+
+        System.out.println(mock.isEmpty());
+
+        Map map = new HashMap<String,Object>(){
+            {
+                this.put("a",1);
+                this.put("b",2);
+                this.put("c",3);
+            }
+        };
+
+        for (Object o : map.entrySet()) {
+            System.out.println(o);
+        }
+    }
     @Test
     public void test5(){
         ArrayList<String> list = new ArrayList();

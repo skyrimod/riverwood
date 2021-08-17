@@ -32,6 +32,18 @@ import java.util.stream.Stream;
  * @date: 2021/5/11
  */
 public class SourceTest {
+    @Test
+    public void StrTest(){
+        String str = "/slb_1629011573634959706/log.html " +
+                "Report:  /font/auto_robot/Clb/log/slb_1629011" +
+                "573634959706/report.html CONSOLE_TEST_FAILED  END_R" +
+                "OBOT  b'slb_1629011573634959706/\\nslb_16290" +
+                "11573634959706/selenium-screenshot-71.png\\nslb_162" +
+                "9011573634959706/selenium-screenshot-53.png\\nslb_16290" +
+                "11573634959706/selenium-screenshot-45.png\\nslb";
+
+        System.out.println(str.contains("CONSOLE_TEST_FAILED"));
+    }
 
     @SneakyThrows
     @Test
