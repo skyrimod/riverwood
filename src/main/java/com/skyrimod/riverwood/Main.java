@@ -5,6 +5,15 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
+       Long start = 1645977600000L;
+       Long now = 1659628799000L;
+
+       long time = now - start;
+
+       System.out.println(time/1000/60/60/24);
+    }
+
+    private void testMergeList(){
         Random random = new Random();
         List<Integer> listA = new ArrayList<>();
         List<Integer> listB = new ArrayList<>();
